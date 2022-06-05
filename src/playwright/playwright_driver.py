@@ -11,6 +11,7 @@ class PlaywrightUiDriver(IUiDriver):
         self.playwright = playwright
         self.browser = self.playwright.chromium.launch(headless=True)
         self.driver = self.browser.new_page()
+        self.driver.set_viewport_size({"width": 1920, "height": 1080})
 
     def find_element(self, selector: str, by: By) -> IUiElement:
         final_selector = ""

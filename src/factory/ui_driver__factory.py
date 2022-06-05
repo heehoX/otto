@@ -13,6 +13,7 @@ def create_ui_driver(driver_type: str) -> IUiDriver:
         case "selenium":
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("headless")
+            chrome_options.add_argument("window-size=1920,1080")
             chrome_options.add_argument('--log-level=1')
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
             selenium_driver = SeleniumUiDriver(driver)
