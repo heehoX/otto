@@ -28,6 +28,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v0.0.0
     - name: Install playwright browsers
       run: |
         playwright install
