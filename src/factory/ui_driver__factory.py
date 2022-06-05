@@ -19,4 +19,4 @@ def create_ui_driver(driver_type: str) -> IUiDriver:
             playwright_driver = PlaywrightUiDriver(playwright)
             return playwright_driver
         case _:
-            print("Driver type not supported")
+            print(f"{driver_type} is not supported")
