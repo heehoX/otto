@@ -9,7 +9,7 @@ from src.playwright.playwright_element import PlaywrightElement
 class PlaywrightUiDriver(IUiDriver):
     def __init__(self, playwright: Playwright):
         self.playwright = playwright
-        self.browser = self.playwright.chromium.launch(headless=False)
+        self.browser = self.playwright.chromium.launch(headless=True)
         self.driver = self.browser.new_page()
 
     def find_element(self, selector: str, by: By) -> IUiElement:

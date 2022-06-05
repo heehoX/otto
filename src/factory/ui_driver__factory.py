@@ -11,7 +11,10 @@ from src.selenium.selenium_driver import SeleniumUiDriver
 def create_ui_driver(driver_type: str) -> IUiDriver:
     match driver_type:
         case "selenium":
-            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("headless")
+            chrome_options.add_argument('--log-level=1')
+            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
             selenium_driver = SeleniumUiDriver(driver)
             return selenium_driver
         case "playwright":
